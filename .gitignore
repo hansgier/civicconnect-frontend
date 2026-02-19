@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+/dist
+/build
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor/System
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Testing
+/coverage
+
+# Production
+/out/
+
+# Vite/Next.js specific
+.vite/
+.next/
