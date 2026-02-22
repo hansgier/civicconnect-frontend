@@ -3,6 +3,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://civicconnect-backend-yui9.onrender.com/api/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
