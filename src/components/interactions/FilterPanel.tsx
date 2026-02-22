@@ -177,7 +177,7 @@ export function FilterPanel({ type, filters, onFilterChange, activeFilterCount }
                     key={status.value}
                     onClick={() => updateFilter('status', status.value)}
                     className={cn(
-                      'rounded-full px-3 py-1.5 text-sm transition-all',
+                      'rounded-full px-3 py-2.5 sm:py-1.5 text-sm transition-all',
                       projectFilters.status === status.value
                         ? 'bg-primary text-primary-foreground'
                         : 'bg-muted hover:bg-muted/80'
@@ -261,7 +261,7 @@ export function FilterPanel({ type, filters, onFilterChange, activeFilterCount }
           {/* Date Range Filter */}
           <div className="space-y-3">
             <label className="text-sm font-medium">Date Range</label>
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label className="text-xs text-muted-foreground mb-1 block">From</label>
                 <DatePicker

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Eye, EyeOff, Mail, Lock, User, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Eye, EyeOff, Mail, Lock, User, ArrowRight, CheckCircle2, Info } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -64,10 +64,21 @@ export function Register() {
             <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-green-100 text-green-600 mb-2">
               <CheckCircle2 className="h-10 w-10" />
             </div>
-            <h1 className="text-2xl font-bold">Check your email</h1>
+            <h1 className="text-2xl font-bold">Registration submitted!</h1>
             <p className="text-muted-foreground">
-              Registration successful! We've sent a verification link to <span className="font-medium text-foreground">{formData.email}</span>. Please verify your email to continue.
+              Your account has been created with the email <span className="font-medium text-foreground">{formData.email}</span>.
             </p>
+            <div className="bg-amber-50 border border-amber-200 text-amber-800 px-4 py-3 rounded-lg text-sm text-left space-y-1">
+              <div className="flex items-start gap-2">
+                <Info className="h-4 w-4 mt-0.5 shrink-0" />
+                <div>
+                  <p className="font-medium">Manual verification required</p>
+                  <p className="text-amber-700 text-xs mt-1">
+                    Email verification is currently unavailable as the system is running on free-tier services. Your account will need to be manually verified by an administrator. Please allow some time for this process.
+                  </p>
+                </div>
+              </div>
+            </div>
             <Button asChild className="w-full h-12">
               <Link to="/login">Go to Login</Link>
             </Button>
@@ -87,6 +98,14 @@ export function Register() {
           </div>
           <h1 className="text-2xl font-bold">Create an account</h1>
           <p className="text-muted-foreground mt-1">Join CivicConnect and engage with your community</p>
+        </div>
+
+        {/* Admin Verification Notice */}
+        <div className="bg-blue-50 border border-blue-200 text-blue-800 px-4 py-3 rounded-xl text-sm mb-4 flex items-start gap-2">
+          <Info className="h-4 w-4 mt-0.5 shrink-0" />
+          <p className="text-xs">
+            <span className="font-medium">Note:</span> Email verification is currently unavailable due to free-tier service limitations. After registering, your account will be manually verified by an administrator.
+          </p>
         </div>
 
         {/* Register Form */}

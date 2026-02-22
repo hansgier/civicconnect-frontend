@@ -273,20 +273,8 @@
   scrollbar-width: none;
 }
 
-@utility masonry-grid {
-  column-count: 3;
-  column-gap: 1.5rem;
-  @media (max-width: 1024px) {
-    column-count: 2;
-  }
-  @media (max-width: 640px) {
-    column-count: 1;
-  }
-}
-
 @utility masonry-item {
   break-inside: avoid;
-  margin-bottom: 1.5rem;
 }
 
 /* Custom scrollbar */

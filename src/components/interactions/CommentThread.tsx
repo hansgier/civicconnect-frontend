@@ -49,7 +49,7 @@ function CommentItem({ projectId, comment, isReply = false }: CommentItemProps) 
   };
 
   return (
-    <div className={cn('group', isReply && 'ml-12')}>
+    <div className={cn('group', isReply && 'ml-6 sm:ml-12')}>
       <div className="flex gap-3">
         <Avatar className="h-10 w-10 flex-shrink-0">
           <AvatarImage src={comment.author.avatar} alt={comment.author.name} />
@@ -324,7 +324,7 @@ export function CommentThread({
           )}
         </h4>
         <div className="flex items-center gap-3">
-          <span className="text-xs font-medium text-muted-foreground uppercase">Sort by:</span>
+          <span className="hidden text-xs font-medium text-muted-foreground uppercase sm:inline">Sort by:</span>
           <Select
             value={sort}
             onValueChange={(value) => setSort(value as CommentSortOption)}

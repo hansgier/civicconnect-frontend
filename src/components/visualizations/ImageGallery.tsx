@@ -28,7 +28,7 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
 
   if (images.length === 1) {
     return (
-      <div className="relative aspect-[21/9] overflow-hidden rounded-3xl">
+      <div className="relative aspect-video sm:aspect-[21/9] overflow-hidden rounded-3xl">
         <img
           src={images[0]}
           alt={title}
@@ -41,7 +41,7 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
   return (
     <div className="relative">
       {/* Main Image */}
-      <div className="relative aspect-21/9 overflow-hidden rounded-3xl bg-muted">
+      <div className="relative aspect-video sm:aspect-[21/9] overflow-hidden rounded-3xl bg-muted">
         <img
           src={images[currentIndex]}
           alt={`${title} - Image ${currentIndex + 1}`}
@@ -77,7 +77,7 @@ export function ImageGallery({ images, title }: ImageGalleryProps) {
               onClick={() => goToSlide(index)}
               className={cn(
                 'relative shrink-0 overflow-hidden rounded-xl transition-all',
-                'h-20 w-28',
+                'h-14 w-20 sm:h-20 sm:w-28',
                 currentIndex === index
                   ? 'ring-2 ring-primary ring-offset-2'
                   : 'opacity-60 hover:opacity-100'
