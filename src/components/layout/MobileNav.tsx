@@ -1,13 +1,6 @@
 import { Home, BarChart3, Bell, User, LogOut, Phone } from 'lucide-react';
 import { Link, useLocation } from 'react-router';
 import { cn } from '@/lib/utils';
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/ui/sheet';
 import { useAuth } from '@/lib/auth';
 
 interface MobileNavProps {
@@ -33,7 +26,7 @@ export function MobileNav({ onLogout }: MobileNavProps) {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border/50 bg-background/95 backdrop-blur-xl lg:hidden">
-      <div className="flex h-16 items-center justify-around px-1">
+      <div className="flex h-16 items-center justify-evenly px-2">
         {filteredNavItems.map((item) => {
           const Icon = item.icon;
           const isActive = location.pathname === item.id;
@@ -74,37 +67,21 @@ export function MobileNav({ onLogout }: MobileNavProps) {
           );
         })}
 
-        {/* Log out button */}
-        <Sheet>
-          <SheetTrigger asChild>
+        {/* Logout button - separated visually from nav items */}
+        {!isGuest && (
+          <>
+            <div className="h-8 w-px bg-border/50" />
             <button
-              className={cn(
-                'group flex flex-col items-center gap-1 rounded-xl px-2 py-2 transition-all duration-300'
-              )}
+              onClick={onLogout}
+              className="group flex flex-col items-center gap-1 rounded-xl px-2 py-2 transition-all duration-300"
             >
               <LogOut className="h-5 w-5 text-muted-foreground transition-all duration-300 group-hover:text-red-500" />
               <span className="text-xs font-medium text-muted-foreground group-hover:text-red-500">
                 Log out
               </span>
             </button>
-          </SheetTrigger>
-          <SheetContent side="bottom" className="rounded-t-2xl">
-            <SheetHeader>
-              <SheetTitle>Log out</SheetTitle>
-            </SheetHeader>
-            <div className="py-6 text-center">
-              <p className="text-muted-foreground mb-6">Are you sure you want to log out?</p>
-              <div className="flex gap-3">
-                <button
-                  onClick={onLogout}
-                  className="flex-1 rounded-xl bg-red-500 px-4 py-3 font-medium text-white transition-colors hover:bg-red-600"
-                >
-                  Log out
-                </button>
-              </div>
-            </div>
-          </SheetContent>
-        </Sheet>
+          </>
+        )}
       </div>
       
       {/* Safe area padding for iOS */}

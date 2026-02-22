@@ -14,7 +14,7 @@ interface ProjectCardProps {
 }
 
 const aspectRatioClasses = {
-  portrait: 'aspect-[4/5]',
+  portrait: 'aspect-[4/3] sm:aspect-[4/5]',
   square: 'aspect-square',
   landscape: 'aspect-[16/10]',
 };
@@ -170,17 +170,17 @@ export function ProjectCard({ project, onClick, aspectRatio = 'portrait' }: Proj
         {/* Content - Bottom */}
         <div className="absolute bottom-0 left-0 right-0 p-4">
           {/* Category */}
-          <span className="mb-2 inline-block rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-sm group-hover:opacity-0 transition-opacity duration-200">
+          <span className="mb-2 inline-block rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-medium text-white backdrop-blur-sm sm:group-hover:opacity-0 transition-opacity duration-200">
             {project.category}
           </span>
 
           {/* Title */}
-          <h3 className="mb-2 text-lg font-bold leading-tight text-white line-clamp-2 group-hover:opacity-0 transition-opacity duration-200">
+          <h3 className="mb-2 text-lg font-bold leading-tight text-white line-clamp-2 sm:group-hover:opacity-0 transition-opacity duration-200">
             {project.title}
           </h3>
 
-          {/* Location & Stats */}
-          <div className="flex items-center justify-between group-hover:opacity-0 transition-opacity duration-200">
+          {/* Location & Stats - hidden on mobile, visible on sm+ with hover hide */}
+          <div className="hidden sm:flex items-center justify-between sm:group-hover:opacity-0 transition-opacity duration-200">
             <span className="text-sm text-white/70">{project.location}</span>
 
             {/* Engagement Pills */}
@@ -219,12 +219,36 @@ export function ProjectCard({ project, onClick, aspectRatio = 'portrait' }: Proj
               </div>
             </div>
           </div>
+
+          {/* Mobile-only compact info bar (always visible) */}
+          <div className="sm:hidden space-y-2">
+            <p className="text-xs text-white/80 line-clamp-2">
+              {stripHtml(project.description)}
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-xs text-white/60">{project.budget}</span>
+              <div className="flex items-center gap-1.5">
+                <div className="flex items-center gap-1 rounded-full bg-green-500/80 px-2 py-1 backdrop-blur-sm">
+                  <ThumbsUp className="h-3 w-3 text-white" />
+                  <span className="text-xs text-white">{project.approveCount}</span>
+                </div>
+                <div className="flex items-center gap-1 rounded-full bg-red-500/80 px-2 py-1 backdrop-blur-sm">
+                  <ThumbsDown className="h-3 w-3 text-white" />
+                  <span className="text-xs text-white">{project.disapproveCount}</span>
+                </div>
+                <div className="flex items-center gap-1 rounded-full bg-black/50 px-2 py-1 backdrop-blur-sm">
+                  <MessageCircle className="h-3 w-3 text-white" />
+                  <span className="text-xs text-white">{project.comments}</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Hover Overlay with Additional Info */}
+        {/* Hover Overlay with Additional Info - sm+ only */}
         <div
           className={cn(
-            'absolute inset-0 flex flex-col justify-end bg-black/60 p-4',
+            'absolute inset-0 hidden sm:flex flex-col justify-end bg-black/60 p-4',
             'transition-opacity duration-300',
             isHovered ? 'opacity-100' : 'opacity-0'
           )}

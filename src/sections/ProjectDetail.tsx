@@ -153,9 +153,9 @@ function ProjectDetailSkeleton() {
       </div>
 
       {/* Two Column Layout Placeholder */}
-      <div className="grid gap-8 lg:grid-cols-3">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {/* Left Column */}
-        <div className="lg:col-span-2 space-y-8">
+        <div className="md:col-span-1 lg:col-span-2 space-y-8">
           <Skeleton className="h-48 w-full rounded-2xl" />
           <Skeleton className="h-64 w-full rounded-2xl" />
           <Skeleton className="h-96 w-full rounded-2xl" />
@@ -232,9 +232,9 @@ export function ProjectDetail() {
       </div>
 
       {/* Two Column Layout */}
-      <div className="grid gap-8 lg:grid-cols-3">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {/* Left Column - Main Content */}
-        <div className="lg:col-span-2 space-y-8">
+        <div className="md:col-span-1 lg:col-span-2 space-y-8">
           {/* Description Card */}
           <section className="rounded-2xl border bg-card p-6">
             <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
