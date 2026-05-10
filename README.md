@@ -50,7 +50,7 @@ This application provides an interactive interface for Ormoc City residents and 
 ### Prerequisites
 
 - Node.js >= 20.0.0
-- Backend API running (see backend README)
+- Backend API running
 
 ### Installation
 
@@ -73,72 +73,3 @@ This application provides an interactive interface for Ormoc City residents and 
 
 4. **Open in Browser:**
    Navigate to `http://localhost:5173`
-
-## Scripts
-
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Build for production (TypeScript check + Vite build)
-- `npm run lint` - Run ESLint
-- `npm run preview` - Preview production build locally
-
-## Project Structure
-
-```
-frontend/app/
-├── src/
-│   ├── components/
-│   │   ├── admin/          # Admin panel components
-│   │   │   ├── shared/     # Shared admin components (tables, dialogs)
-│   │   │   ├── forms/      # Form components (ProjectForm, etc.)
-│   │   │   └── tabs/       # Admin panel tabs (Projects, Users, etc.)
-│   │   └── ui/             # Reusable UI components (Button, Input, etc.)
-│   ├── hooks/              # Custom React hooks
-│   │   ├── admin/          # Admin-specific hooks
-│   │   └── use-*.ts        # Feature hooks (use-projects, use-auth, etc.)
-│   ├── lib/                # Utility functions and helpers
-│   ├── pages/              # Page components
-│   ├── sections/           # Section components (Dashboard, Feed, etc.)
-│   ├── styles/             # Global styles and Tailwind config
-│   ├── types/              # TypeScript type definitions
-│   └── main.tsx            # Application entry point
-├── public/                 # Static assets
-└── index.html              # HTML template
-```
-
-## Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `VITE_API_URL` | Backend API base URL | Yes |
-| `VITE_SOCKET_URL` | Socket.io server URL | Yes |
-
-## Recent Changes
-
-See [CHANGELOG.md](./CHANGELOG.md) for detailed version history.
-
-### Latest Updates (v1.0.0)
-
-- **Dashboard**: Interactive charts, status trends, grouped bar charts
-- **Admin Panel**: Full CRUD with rich text editor, bulk actions
-- **UI Overhaul**: Premium components with glassmorphism, modern aesthetics
-- **Real-time**: Socket.io integration for live updates
-- **Performance**: Query optimization, caching, debouncing
-- **Code Quality**: Resolved 46+ ESLint errors, TypeScript strict mode
-- **Accessibility**: Keyboard shortcuts, focus management, screen reader support
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/your-feature`
-3. Commit changes: `git commit -am 'Add new feature'`
-4. Push to branch: `git push origin feature/your-feature`
-5. Submit a pull request
-
-## Support
-
-For issues or questions, please open an issue in the project repository.
-
-## Links
-
-- [Backend Documentation](../backend/README.md)
-- [Changelog](./CHANGELOG.md)
